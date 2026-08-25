@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Dead Drop",
+    "slug": "dead-drop",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "deaddrop",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#0f172a",
+    "assetBundlePatterns": ["**/*"],
+    "main": "index.ts",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.deaddrop.local",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow Dead Drop to access your camera to scan QR codes.",
+        "NSLocationWhenInUseUsageDescription": "Allow Dead Drop to access your location to verify you are near a dead drop."
+      }
+    },
+    "android": {
+      "package": "com.deaddrop.local",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "INTERNET",
+        "VIBRATE"
+      ],
+      "softwareKeyboardLayoutMode": "resize"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-sqlite",
+      [
+        "expo-location",
+        {
+          "android": "ACCESS_FINE_LOCATION",
+          "ios": "LOCATION_WHEN_IN_USE",
+          "backgroundColor": "#0f172a"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Dead Drop to access your camera to scan QR codes."
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow Dead Drop to access your camera to scan QR codes."
+        }
+      ]
+    ]
+  }
+}
